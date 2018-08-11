@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50572373435475044}
   - component: {fileID: 114390276757913328}
   - component: {fileID: 58427700766746498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 0}
   speed: 25
+  lifeTime: 2
+  doesSpin: 0
+  spinSpeed: 4
 --- !u!212 &212182592463753484
 SpriteRenderer:
   m_ObjectHideFlags: 1

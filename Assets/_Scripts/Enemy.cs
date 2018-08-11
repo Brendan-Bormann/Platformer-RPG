@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
 	[SerializeField] private float speed;
 	[SerializeField] public int health = 100;
 
-	[SerializeField] private int direction = 5;
+	[SerializeField] private bool goingRight = true;
 	private Rigidbody2D myRigidBody;
 
 	[SerializeField] private float rayDistance = 2.0f;
@@ -22,6 +22,18 @@ public class Enemy : MonoBehaviour {
 	void Update ()
 	{
 		LivingCheck();
+
+		var direction = 0;
+
+		if (goingRight)
+		{
+			direction = 1;
+		}
+		else
+		{
+			direction = -1;
+		}
+
 		myRigidBody.velocity = new Vector2(direction * speed, myRigidBody.velocity.y);
 		TurnAround();
 	}
@@ -32,13 +44,16 @@ public class Enemy : MonoBehaviour {
 		RaycastHit2D Lhit = Physics2D.Raycast(myRigidBody.transform.position, Vector2.left);
 		RaycastHit2D Rhit = Physics2D.Raycast(myRigidBody.transform.position, Vector2.right);
 
-		if (Rhit.distance < rayDistance)
+		// Debug.Log("1" + Rhit.distance);
+		// Debug.Log("2" + rayDistance);
+
+		if (Rhit.distance <= rayDistance && goingRight)
 		{
-			direction = -direction;
+			goingRight = false;
 		}
-		else if (Lhit.distance < rayDistance)
+		else if (Lhit.distance <= rayDistance && !goingRight)
 		{
-			direction = Mathf.Abs(direction);
+			goingRight = true;
 		}
 	}
 
