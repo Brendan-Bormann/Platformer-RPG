@@ -8,12 +8,16 @@ public class Player : MonoBehaviour
 	
 	
 	[SerializeField] private float jumpPower;
+	private bool jumpLocked = false;
 	[SerializeField] private float fallMultiplier = 2.5f;
 	[SerializeField] private float lowJumpMultiplier = 2f;
 
 	[SerializeField] private float groundedCollisionDistance = 1.2f;
 
 	private Rigidbody2D myRigidBody;
+
+	[SerializeField] private GameObject LeftFoot;
+	[SerializeField] private GameObject RightFoot;
 
 	void Start()
 	{
@@ -29,17 +33,9 @@ public class Player : MonoBehaviour
 		JumpMod();
 	}
 
-	// private bool isGrounded()
-	// {
-	// 	if (myRigidBody.velocity.y <= 0)
-	// 	{
-	// 		RaycastHit2D hit = RaycastHit2D();
-	// 	}
-	// }
-
 	private void HandleMovement(float horizontal)
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+		if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && !jumpLocked)
 		{
 			Jump(horizontal);
 		}
@@ -49,8 +45,10 @@ public class Player : MonoBehaviour
 
 	private bool isGrounded()
 	{
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
-		if (hit.distance < groundedCollisionDistance)
+		RaycastHit2D RightFootRay = Physics2D.Raycast(RightFoot.transform.position, Vector2.down);
+		RaycastHit2D LeftFootRay = Physics2D.Raycast(LeftFoot.transform.position, Vector2.down);
+
+		if (RightFootRay.distance < groundedCollisionDistance || LeftFootRay.distance < groundedCollisionDistance)
 		{
 			return true;
 		}
@@ -62,7 +60,18 @@ public class Player : MonoBehaviour
 
 	private void Jump(float horizontal)
 	{
+		myRigidBody.velocity = Vector2.zero;
 		myRigidBody.AddForce(transform.up * jumpPower);
+
+		StopCoroutine(JumpLock());
+		StartCoroutine(JumpLock());
+	}
+
+	private IEnumerator JumpLock()
+	{
+		jumpLocked = true;
+		yield return new WaitForSeconds(0.25f);
+		jumpLocked = false;
 	}
 
 	private void JumpMod()

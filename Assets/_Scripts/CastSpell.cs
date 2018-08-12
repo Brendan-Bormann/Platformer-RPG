@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CastSpell : MonoBehaviour {
 
-	[SerializeField] private GameObject spell;
+	[SerializeField] private GameObject[] spells;
 
 	// Use this for initialization
 	void Start ()
@@ -17,7 +17,13 @@ public class CastSpell : MonoBehaviour {
 	{
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			Instantiate(spell, transform.position, Quaternion.identity);
+			gameObject.GetComponent<Stats>().currentMana -= 5;
+			Instantiate(spells[0], transform.position, Quaternion.identity);
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			gameObject.GetComponent<Stats>().currentMana -= 5;
+			Instantiate(spells[1], transform.position, Quaternion.identity);
 		}
 	}
 }

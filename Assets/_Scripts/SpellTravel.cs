@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class SpellTravel : MonoBehaviour {
 
-	[SerializeField] private Rigidbody2D myRigidBody;
-
+	private Rigidbody2D myRigidBody;
 	private Vector3 destination;
+
 	private Vector2 startLocation;
 	private float timeCastAt;
 
+
+	[SerializeField] private Vector2 size = new Vector2(1,1);
+
+	[SerializeField] private float damage;
 	[SerializeField] private float speed;
 	[SerializeField] private float lifeTime = 1f;
 
@@ -23,6 +28,19 @@ public class SpellTravel : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+
+		if (size == new Vector2(1,1))
+		{
+			var rando = Random.Range(0, 21);
+
+			if (rando == 20)
+			{
+				size = new Vector2(2,2);
+			}
+		}
+
+		transform.localScale = size;
+
 		// reference my rigidbody
 		myRigidBody = GetComponent<Rigidbody2D>();
 
@@ -66,12 +84,11 @@ public class SpellTravel : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D hit)
 	{
-		// kill self on collision
 		Destroy(gameObject);
 
 		if (hit.collider.tag == "Enemy")
 		{
-			hit.collider.GetComponent<Enemy>().health -= 5;
+			hit.collider.GetComponent<Enemy>().health -= damage;
 		}
 	}
 }

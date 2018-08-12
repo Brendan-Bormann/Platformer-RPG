@@ -5,12 +5,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
 	[SerializeField] private float speed;
-	[SerializeField] public int health = 100;
+	[SerializeField] public float health = 100;
 
-	[SerializeField] private bool goingRight = true;
+	[SerializeField] private float xMoveDirection = 1f;
 	private Rigidbody2D myRigidBody;
 
 	[SerializeField] private float rayDistance = 2.0f;
+
+	[SerializeField] private float collisionDistance = 1f;
+
+	[SerializeField] private LayerMask layerMask;
 
 	// Use this for initialization
 	void Start ()
@@ -23,37 +27,26 @@ public class Enemy : MonoBehaviour {
 	{
 		LivingCheck();
 
-		var direction = 0;
-
-		if (goingRight)
-		{
-			direction = 1;
-		}
-		else
-		{
-			direction = -1;
-		}
-
-		myRigidBody.velocity = new Vector2(direction * speed, myRigidBody.velocity.y);
-		TurnAround();
+		Pathing();
 	}
 
-	private void TurnAround()
+	private void Pathing()
 	{
-		//fix me :(
-		RaycastHit2D Lhit = Physics2D.Raycast(myRigidBody.transform.position, Vector2.left);
-		RaycastHit2D Rhit = Physics2D.Raycast(myRigidBody.transform.position, Vector2.right);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xMoveDirection, 0), Mathf.Infinity, layerMask);
 
-		// Debug.Log("1" + Rhit.distance);
-		// Debug.Log("2" + rayDistance);
+		myRigidBody.velocity = new Vector2(xMoveDirection * speed, myRigidBody.velocity.y);
 
-		if (Rhit.distance <= rayDistance && goingRight)
-		{
-			goingRight = false;
+		if (hit.distance <= collisionDistance) {
+			Flip();
 		}
-		else if (Lhit.distance <= rayDistance && !goingRight)
-		{
-			goingRight = true;
+	}
+
+	private void Flip()
+	{
+		if (xMoveDirection > 0) {
+			xMoveDirection = -1;
+		} else {
+			xMoveDirection = 1;
 		}
 	}
 

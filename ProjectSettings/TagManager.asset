@@ -17,6 +17,7 @@ TagManager:
   - Player
   - Enemy
   - Spell
+  - EnemySpell
   - 
   - 
   - 
@@ -34,10 +35,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - NPC
+  - NPCBounds
+  - CameraBounds
   m_SortingLayers:
   - name: Default
     uniqueID: 0
