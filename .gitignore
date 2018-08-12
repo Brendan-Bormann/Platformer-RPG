@@ -17,7 +17,6 @@ sysinfo.txt
 # ===================================== #
 [Ee]xported[Oo]bj/
 .vs/
-.vscode
 /*.userprefs
 /*.csproj
 /*.pidb
@@ -30,6 +29,16 @@ sysinfo.txt
 .consulo/
 /*.tmp
 /*.svd
+
+# ===================================== #
+#          Visual Studio Code           #
+# ===================================== #
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
  
 # ============ #
 # OS generated #
