@@ -4,17 +4,44 @@ using UnityEngine;
 
 public class ManaWell : MonoBehaviour {
 
-	[SerializeField] private float regenAmount = 1.0f;
-	[SerializeField] private float regenRate = 1.0f;
+	[SerializeField] private float regenAmount;
+	[SerializeField] private float regenRate;
 
-	void OnCollisionEnter2D(Collision2D user)
+	private bool inWater = false;
+
+	void OnTriggerEnter2D(Collider2D user)
 	{
-		Debug.Log("Working");
+		
+		if (user.tag == "Player")
+		{
+			inWater = true;
+			Debug.Log("Working");
+			StartCoroutine(RegenerateMana(user));
+		}
 	}
 
-	void OnCollisionExit2D(Collision2D user)
+	void OnTriggerExit2D(Collider2D user)
 	{
-		Debug.Log("Bye!");
+		
+		if (user.tag == "Player")
+		{
+			inWater = false;
+			Debug.Log("Bye!");
+			StopCoroutine(RegenerateMana(user));
+		}
 	}
+
+	private IEnumerator RegenerateMana(Collider2D user)
+	{
+		while (inWater)
+		{
+			yield return new WaitForSeconds(regenRate);
+			if (user.tag == "Player")
+			{
+				user.GetComponent<Stats>().currentMana += regenAmount;
+			}
+		}
+	}
+
 	
 }
