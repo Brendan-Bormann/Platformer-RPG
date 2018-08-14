@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 1.3, y: 1.3}
   damage: 5
+  manaCost: 5
   speed: 8.3
   lifeTime: 5
   doesSpin: 0

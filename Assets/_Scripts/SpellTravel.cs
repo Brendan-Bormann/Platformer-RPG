@@ -12,9 +12,21 @@ public class SpellTravel : MonoBehaviour {
 	private float timeCastAt;
 
 
+
+
 	[SerializeField] private Vector2 size = new Vector2(1,1);
 
 	[SerializeField] private float damage;
+	[SerializeField] private float manaCost;
+
+
+	public float myManaCost {
+		get
+		{
+			return manaCost;
+		}
+	}
+
 	[SerializeField] private float speed;
 	[SerializeField] private float lifeTime = 1f;
 
@@ -36,6 +48,7 @@ public class SpellTravel : MonoBehaviour {
 			if (rando == 20)
 			{
 				size = new Vector2(2,2);
+				damage = damage * 2f;
 			}
 		}
 
