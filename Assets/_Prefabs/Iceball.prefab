@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494073778879500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.659935, y: 7.533222, z: 0}
+  m_LocalPosition: {x: -15.88366, y: 11.537071, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,10 +89,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ed6817515690409b17b7a151b07ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 1.3, y: 1.3}
+  usePhysics: 0
+  force: 1000
+  size: {x: 1, y: 1}
   damage: 5
   manaCost: 5
-  speed: 8.3
+  speed: 8
   lifeTime: 5
   doesSpin: 0
   spinSpeed: 1
@@ -131,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21301650, guid: 15ee9db3a8060c540a259b177603e1ad, type: 3}
+  m_Sprite: {fileID: 21301722, guid: 15ee9db3a8060c540a259b177603e1ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -11,6 +11,9 @@ public class SpellTravel : MonoBehaviour {
 	private Vector2 startLocation;
 	private float timeCastAt;
 
+	[SerializeField] private bool usePhysics = false;
+	[SerializeField] private float force = 1000;
+
 
 
 
@@ -41,15 +44,12 @@ public class SpellTravel : MonoBehaviour {
 	void Start ()
 	{
 
-		if (size == new Vector2(1,1))
-		{
-			var rando = Random.Range(0, 21);
+		var rando = Random.Range(0, 21);
 
-			if (rando == 20)
-			{
-				size = new Vector2(2,2);
-				damage = damage * 2f;
-			}
+		if (rando == 20)
+		{
+			size = size * 2;
+			damage = damage * 2f;
 		}
 
 		transform.localScale = size;
@@ -69,11 +69,21 @@ public class SpellTravel : MonoBehaviour {
 
 		// random starting rotation
 		myCurrentSpin = (int) Random.Range(-360.0f, 360.0f);
+
+		if (usePhysics)
+		{
+			myRigidBody.AddForce(direction * force);
+		}
+
 	}
 	void Update ()
 	{
-		// move the projectile
-		myRigidBody.velocity = direction * speed;
+
+		if (!usePhysics)
+		{
+			// move the projectile
+			myRigidBody.velocity = direction * speed;
+		}
 
 		// Set correct angle according ti cast angle
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

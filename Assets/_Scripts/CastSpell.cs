@@ -30,5 +30,10 @@ public class CastSpell : MonoBehaviour {
 			gameObject.GetComponent<Stats>().currentMana -= spells[2].GetComponent<SpellTravel>().myManaCost;
 			Instantiate(spells[2], transform.position, Quaternion.identity);
 		}
+		if (Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			gameObject.GetComponent<Stats>().currentMana -= spells[3].GetComponent<SpellTravel>().myManaCost;
+			Instantiate(spells[3], transform.position, Quaternion.identity);
+		}
 	}
 }
