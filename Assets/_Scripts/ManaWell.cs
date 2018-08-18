@@ -7,6 +7,9 @@ public class ManaWell : MonoBehaviour {
 	[SerializeField] private float regenAmount;
 	[SerializeField] private float regenRate;
 
+	[SerializeField] private bool health = false;
+	[SerializeField] private bool mana = false;
+
 	private bool inWater = false;
 
 	void OnTriggerEnter2D(Collider2D user)
@@ -38,7 +41,14 @@ public class ManaWell : MonoBehaviour {
 			yield return new WaitForSeconds(regenRate);
 			if (user.tag == "Player")
 			{
-				user.GetComponent<Stats>().currentMana += regenAmount;
+				if (health == true)
+				{
+					user.GetComponent<Stats>().currentHealth += regenAmount;
+				}
+				if (mana == true)
+				{
+					user.GetComponent<Stats>().currentMana += regenAmount;
+				}
 			}
 		}
 	}

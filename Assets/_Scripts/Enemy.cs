@@ -16,6 +16,15 @@ public class Enemy : MonoBehaviour {
 
 	[SerializeField] private LayerMask layerMask;
 
+	[SerializeField] private GameObject Player;
+
+	[SerializeField] private GameObject[] enemySpells;
+	[SerializeField] private float attackDistance = 10f;
+
+	[SerializeField] private float attackCooldown = 1f;
+
+	private bool attackedRecently;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -28,6 +37,11 @@ public class Enemy : MonoBehaviour {
 		LivingCheck();
 
 		Pathing();
+
+		if (playerNear())
+		{
+			attackPlayer();
+		}
 	}
 
 	private void Pathing()
@@ -56,5 +70,35 @@ public class Enemy : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	private bool playerNear()
+	{
+		var distance = Vector2.Distance(Player.transform.position, transform.position);
+
+		if (distance < attackDistance)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	private void attackPlayer()
+	{
+		if (!attackedRecently)
+		{
+			Instantiate(enemySpells[0], transform.position, Quaternion.identity);
+			StartCoroutine(attackCooldownStart());
+		}
+	}
+
+	private IEnumerator attackCooldownStart()
+	{
+		attackedRecently = true;
+		yield return new WaitForSeconds(attackCooldown);
+		attackedRecently = false;
 	}
 }

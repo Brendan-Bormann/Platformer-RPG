@@ -55,11 +55,16 @@
   <ItemGroup>
      <Compile Include="Assets\_Scripts\CastSpell.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
+     <Compile Include="Assets\_Scripts\EnemySpellTravel.cs" />
+     <Compile Include="Assets\_Scripts\LevelTransfer.cs" />
      <Compile Include="Assets\_Scripts\ManaWell.cs" />
      <Compile Include="Assets\_Scripts\NPC.cs" />
      <Compile Include="Assets\_Scripts\Player.cs" />
+     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
      <Compile Include="Assets\_Scripts\SpellTravel.cs" />
+     <Compile Include="Assets\_Scripts\Spring.cs" />
      <Compile Include="Assets\_Scripts\Stats.cs" />
+     <Compile Include="Assets\_Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
