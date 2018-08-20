@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AbilityLog : MonoBehaviour {
 
-	[SerializeField] private Ability[] myAbilities;
+	// [SerializeField] private string[] myAbilities;
 
 	[SerializeField] private string[] AbilityKey;
 
@@ -15,9 +15,6 @@ public class AbilityLog : MonoBehaviour {
 	
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCodeAbilityKey[0]])
-		{
-
-		}
+		
 	}
 }

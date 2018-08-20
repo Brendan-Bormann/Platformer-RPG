@@ -7,6 +7,10 @@ public class CastSpell : MonoBehaviour {
 
 	[SerializeField] private GameObject[] spells;
 
+	[SerializeField] private GameObject[] spellsUI;
+
+	[SerializeField] private bool[] spellsCooldown;
+
 
 	// Use this for initialization
 	void Start ()
@@ -17,7 +21,7 @@ public class CastSpell : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.Alpha1))
+		if (Input.GetKeyDown(KeyCode.Alpha1) && spellsCooldown[0])
 		{
 			gameObject.GetComponent<Stats>().currentMana -= spells[0].GetComponent<SpellTravel>().myManaCost;
 			Instantiate(spells[0], transform.position, Quaternion.identity);

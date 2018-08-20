@@ -10,6 +10,7 @@ public class Stats : MonoBehaviour {
 	[SerializeField] public float currentMana;
 	[SerializeField] private float maxMana;
 
+
 	[SerializeField] private GameObject healthBar;
 	[SerializeField] private GameObject shadedHealthBar;
 	[SerializeField] private GameObject manaBar;
@@ -55,7 +56,7 @@ public class Stats : MonoBehaviour {
 
 		oldHealth = currentHealth;
 		oldMana = currentMana;
-		
+
 	}
 
 

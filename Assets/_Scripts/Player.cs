@@ -5,8 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	[SerializeField] public float movementSpeed;
-	
-	
 	[SerializeField] public float jumpPower;
 	private bool jumpLocked = false;
 	[SerializeField] private float fallMultiplier = 2.5f;
