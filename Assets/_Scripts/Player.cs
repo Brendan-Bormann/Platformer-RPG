@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	[SerializeField] private float movementSpeed;
+	[SerializeField] public float movementSpeed;
 	
 	
-	[SerializeField] private float jumpPower;
+	[SerializeField] public float jumpPower;
 	private bool jumpLocked = false;
 	[SerializeField] private float fallMultiplier = 2.5f;
 	[SerializeField] private float lowJumpMultiplier = 2f;
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 	private IEnumerator JumpLock()
 	{
 		jumpLocked = true;
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(0.1f);
 		jumpLocked = false;
 	}
 

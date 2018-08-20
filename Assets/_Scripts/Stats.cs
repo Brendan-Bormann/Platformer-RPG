@@ -20,6 +20,7 @@ public class Stats : MonoBehaviour {
 	private float oldMana;
 
 
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -29,7 +30,11 @@ public class Stats : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		HealthManaBarHandler();
+	}
 
+	void HealthManaBarHandler()
+	{
 		currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 		currentMana = Mathf.Clamp(currentMana, 0, maxMana);
 
@@ -50,7 +55,7 @@ public class Stats : MonoBehaviour {
 
 		oldHealth = currentHealth;
 		oldMana = currentMana;
-
+		
 	}
 
 

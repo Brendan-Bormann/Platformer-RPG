@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Scripts\AbilityBar.cs" />
+     <Compile Include="Assets\_Scripts\AbilityLog.cs" />
+     <Compile Include="Assets\_Scripts\Buff.cs" />
      <Compile Include="Assets\_Scripts\CastSpell.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
      <Compile Include="Assets\_Scripts\EnemySpellTravel.cs" />

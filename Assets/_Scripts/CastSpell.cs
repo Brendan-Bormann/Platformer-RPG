@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CastSpell : MonoBehaviour {
 
 	[SerializeField] private GameObject[] spells;
+
 
 	// Use this for initialization
 	void Start ()
