@@ -58,8 +58,6 @@ public class PlayerMovement : MonoBehaviour {
 
 		if ((left.distance < groundedDistance || left.distance < groundedDistance) && (left.distance != 0 && left.distance != 0))
 		{
-			Debug.Log(left.distance);
-			Debug.Log(right.distance);
 			return true;
 		}
 
