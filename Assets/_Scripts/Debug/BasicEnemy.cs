@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour {
 
-	[SerializeField] private GameObject PlayerBrain;
+	private EnemyManager EnemyManager;
 	private PlayerManager PlayerManager;
+
 
 	[Header("Stats")]
 	// Personal stats
@@ -16,6 +17,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	[Header("Physics")]
+	// Physics and raycast related items
 	[SerializeField] private float collisionDistance = 1f;
 	private Rigidbody2D myRigidBody;
 	[SerializeField] private float moveDirection = -1f;
@@ -23,7 +25,8 @@ public class BasicEnemy : MonoBehaviour {
 
 	void Start ()
 	{
-		PlayerManager = PlayerBrain.GetComponent<PlayerManager>();
+		EnemyManager = GameObject.Find("Enemy Brain").GetComponent<EnemyManager>();
+		PlayerManager = EnemyManager.PlayerManager;
 		myRigidBody = GetComponent<Rigidbody2D>();
 	}
 	
@@ -36,8 +39,6 @@ public class BasicEnemy : MonoBehaviour {
 	private void Move()
 	{
 		myRigidBody.velocity = new Vector2(moveDirection * speed, myRigidBody.velocity.y);
-
-		Debug.DrawLine(transform.position, new Vector2(transform.position.x + (moveDirection * 3f), transform.position.y), Color.cyan);
 		
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(moveDirection, 0), 5f, layerMask);
 		if (hit.distance <= collisionDistance && hit.collider != null)
