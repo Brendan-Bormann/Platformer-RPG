@@ -18,7 +18,6 @@ public class ManaWell : MonoBehaviour {
 		if (user.tag == "Player")
 		{
 			inWater = true;
-			Debug.Log("Working");
 			StartCoroutine(RegenerateMana(user));
 		}
 	}
@@ -29,7 +28,6 @@ public class ManaWell : MonoBehaviour {
 		if (user.tag == "Player")
 		{
 			inWater = false;
-			Debug.Log("Bye!");
 			StopCoroutine(RegenerateMana(user));
 		}
 	}

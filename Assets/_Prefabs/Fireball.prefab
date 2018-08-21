@@ -89,6 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ed6817515690409b17b7a151b07ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usePhysics: 0
+  force: 1000
+  coolDown: 0.5
   size: {x: 1, y: 1}
   damage: 10
   manaCost: 10

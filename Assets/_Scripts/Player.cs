@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float horizontal = Input.GetAxis ("Horizontal");
+		float horizontal = Input.GetAxis("Horizontal");
 
 		HandleMovement(horizontal);
 		JumpMod();

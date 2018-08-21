@@ -57,13 +57,15 @@
      <Compile Include="Assets\_Scripts\AbilityLog.cs" />
      <Compile Include="Assets\_Scripts\Buff.cs" />
      <Compile Include="Assets\_Scripts\CastSpell.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Player\PlayerManager.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\_Scripts\Debug\PlayerMeleeAttack.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
      <Compile Include="Assets\_Scripts\EnemySpellTravel.cs" />
      <Compile Include="Assets\_Scripts\LevelTransfer.cs" />
      <Compile Include="Assets\_Scripts\ManaWell.cs" />
      <Compile Include="Assets\_Scripts\NPC.cs" />
      <Compile Include="Assets\_Scripts\Player.cs" />
-     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
      <Compile Include="Assets\_Scripts\SpellTravel.cs" />
      <Compile Include="Assets\_Scripts\Spring.cs" />
      <Compile Include="Assets\_Scripts\Stats.cs" />

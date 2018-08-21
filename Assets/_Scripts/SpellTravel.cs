@@ -14,7 +14,7 @@ public class SpellTravel : MonoBehaviour {
 	[SerializeField] private bool usePhysics = false;
 	[SerializeField] private float force = 1000;
 
-	[SerializeField] private float coolDown = 0;
+	[SerializeField] public float coolDown = 0;
 
 	[SerializeField] private Vector2 size = new Vector2(1,1);
 

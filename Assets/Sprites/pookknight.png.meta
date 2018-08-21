@@ -3,7 +3,7 @@ guid: 2473561f682ae0b4d88c276602a8ccd0
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -21,6 +21,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -31,7 +33,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -44,11 +46,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 50
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 32, y: 24, z: 24, w: 4}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -81,7 +83,26 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
+    outline:
+    - - {x: -13, y: -40}
+      - {x: -14, y: -28}
+      - {x: -25, y: -28}
+      - {x: -34, y: -20}
+      - {x: -34, y: 1}
+      - {x: -24, y: 2}
+      - {x: -17, y: 13}
+      - {x: -18, y: 34}
+      - {x: -10, y: 43}
+      - {x: -21, y: 54}
+      - {x: -23, y: 60}
+      - {x: -14, y: 62}
+      - {x: 0, y: 59}
+      - {x: 2, y: 42}
+      - {x: 13, y: 40}
+      - {x: 15, y: 9}
+      - {x: 24, y: -6}
+      - {x: 41, y: -31}
+      - {x: 41, y: -41}
     physicsShape: []
     bones: []
     spriteID: 3f9cfead997f820488b1e23252a7009e
@@ -90,6 +111,8 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
