@@ -12,13 +12,13 @@ public class PlayerManager : MonoBehaviour
 
 	// Health //
 	[Header("Health")]
-	[SerializeField] public float CurrentHealth = 100;
-	[SerializeField] public float MaxHealth = 100;
+	[SerializeField] public int CurrentHealth = 100;
+	[SerializeField] public int MaxHealth = 100;
 
 	// Damage Stats
 	[Header("Combat")]
-	[SerializeField] public float AttackPower = 10;
-	[SerializeField] public float SpellPower = 10;
+	[SerializeField] public int AttackPower = 10;
+	[SerializeField] public int SpellPower = 10;
 
 	// Movement Stats
 	[Header("Movement")]
@@ -37,5 +37,11 @@ public class PlayerManager : MonoBehaviour
 	void Update ()
 	{
 		
+	}
+
+
+	public void TakeDamage(int damage)
+	{
+		CurrentHealth -= damage;
 	}
 }

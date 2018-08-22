@@ -49,17 +49,20 @@ public class MovingPlatform : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        rider = col.gameObject;
-        if (rider.name == "Player")
+        if (col.name == "Player")
         {
+            rider = col.gameObject;
             rider.transform.parent = transform;
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-		rider.transform.parent = null;
-        rider = null;
+        if (rider != null)
+        {
+            rider.transform.parent = null;
+            rider = null;
+        }
     }
 
 }
