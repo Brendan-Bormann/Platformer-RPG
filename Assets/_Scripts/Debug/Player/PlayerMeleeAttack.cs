@@ -50,6 +50,7 @@ public class PlayerMeleeAttack : MonoBehaviour {
 
 	private IEnumerator BasicAttack()
 	{
+		
 		var HitBox = RightHitBox;
 
 		if (PlayerPersistantDirection == dir.Left)
@@ -60,10 +61,13 @@ public class PlayerMeleeAttack : MonoBehaviour {
 		// Prevent Player from attacking again
 		AttackReady = false;
 
+		Player.GetComponent<Animator>().SetBool("Attacking", true);
 		// Turn on hitbox for time
 		HitBox.SetActive(true);
 		yield return new WaitForSeconds(0.25f);
 		HitBox.SetActive(false);
+
+		Player.GetComponent<Animator>().SetBool("Attacking", false);
 
 		// Wait time and get ready for another attack
 		yield return new WaitForSeconds(AttackSpeed);

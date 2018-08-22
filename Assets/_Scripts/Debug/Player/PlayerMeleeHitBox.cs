@@ -8,6 +8,8 @@ public class PlayerMeleeHitBox : MonoBehaviour
 	[SerializeField] private GameObject PlayerBrain;
 	private PlayerManager PlayerManager;
 
+	[SerializeField] private bool knockback = true;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -25,8 +27,16 @@ public class PlayerMeleeHitBox : MonoBehaviour
 
 		if (hit.tag == "Enemy")
 		{
-			
 			hit.GetComponent<BasicEnemy>().TakeDamage(PlayerManager.AttackPower);
+
+			if (knockback)
+			{
+				Rigidbody2D enemyBody = hit.GetComponent<Rigidbody2D>();
+
+				hit.GetComponent<BasicEnemy>().toogleMove(0.75f);
+
+				enemyBody.AddForce(new Vector2(300, 200));
+			}
 		}
 	}
 }

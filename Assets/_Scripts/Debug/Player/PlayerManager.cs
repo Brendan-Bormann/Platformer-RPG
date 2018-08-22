@@ -25,23 +25,39 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] public int JumpHeight = 1000;
 	[SerializeField] public float MovementSpeed = 8;
 
+	[Header("UI")]
+	[SerializeField] private GameObject UIBrain;
+	private HealthBar HealthBarController;
 	
 
 	
 	void Start ()
 	{
-
+		HealthBarController = UIBrain.GetComponent<HealthBar>();
 	}
 	
 	
 	void Update ()
 	{
-		
+		HealthBarController.SetHealth(CurrentHealth);
+		healthDebug();
 	}
 
 
 	public void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
+	}
+
+	void healthDebug()
+	{
+		if (Input.GetKeyDown(KeyCode.I))
+		{
+			CurrentHealth -= 10;
+		}
+		if (Input.GetKeyDown(KeyCode.O))
+		{
+			CurrentHealth += 10;
+		}
 	}
 }

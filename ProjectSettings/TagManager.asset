@@ -19,7 +19,7 @@ TagManager:
   - Enemy
   - Spell
   - EnemySpell
-  - 
+  - EnemyBounds
   - HitBox
   - 
   - 
