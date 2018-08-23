@@ -27,13 +27,13 @@ public class PlayerMeleeHitBox : MonoBehaviour
 
 		if (hit.tag == "Enemy")
 		{
-			hit.GetComponent<BasicEnemy>().TakeDamage(PlayerManager.AttackPower);
+			hit.GetComponent<BasicEnemy>().TakeDamage(PlayerManager.DamageCalculation);
 
 			if (knockback)
 			{
 				Rigidbody2D enemyBody = hit.GetComponent<Rigidbody2D>();
 
-				hit.GetComponent<BasicEnemy>().toogleMove(0.75f);
+				hit.GetComponent<BasicEnemy>().toggleMove(0.75f);
 
 				enemyBody.AddForce(new Vector2(300, 200));
 			}

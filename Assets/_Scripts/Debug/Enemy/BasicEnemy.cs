@@ -14,6 +14,7 @@ public class BasicEnemy : MonoBehaviour {
 	[SerializeField] public int health = 1;
 	[SerializeField] public float speed = 1;
 	[SerializeField] public int damage = 5;
+	[SerializeField] public int defence = 0;
 
 	[Header("Sprite Info")]
 	[SerializeField] private Sprite deathSprite;
@@ -66,7 +67,7 @@ public class BasicEnemy : MonoBehaviour {
 		allowedToMove = true;
 	}
 
-	public void toogleMove(float time)
+	public void toggleMove(float time)
 	{
 		allowedToMove = false;
 		StartCoroutine(BlockMove(time));
@@ -96,16 +97,23 @@ public class BasicEnemy : MonoBehaviour {
 
 	private IEnumerator Die()
 	{
+		StopAllCoroutines();
 		allowedToMove = false;
 		gameObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
 		gameObject.GetComponent<Collider2D>().enabled = false;
-		myRigidBody.freezeRotation = false;
-		yield return new WaitForSeconds(2);
+		myRigidBody.velocity = Vector2.zero;
+		yield return new WaitForSeconds(4);
 		Destroy(gameObject);
 	}
 
-	public void TakeDamage(int damage)
+	public void TakeDamage(int incomingDamage)
 	{
-		health -= damage;
+		incomingDamage -= defence;
+		
+		GameObject hitText = Instantiate(EnemyManager.combatText, transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
+		CombatText script = hitText.GetComponent<CombatText>();
+		script.init(incomingDamage, new Color(204, 51, 0), false);
+
+		health -= incomingDamage;
 	}
 }

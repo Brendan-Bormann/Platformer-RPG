@@ -9,6 +9,8 @@ public class EnemyManager : MonoBehaviour
 	[SerializeField] private GameObject[] enemies;
 
 	[SerializeField] private GameObject EnemyBounds;
+
+	[SerializeField] public GameObject combatText;
 	
 
 	// Use this for initialization

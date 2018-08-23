@@ -65,9 +65,11 @@
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMeleeAttack.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMeleeHitBox.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\_Scripts\Debug\UI\CombatText.cs" />
      <Compile Include="Assets\_Scripts\Debug\UI\Dialogue.cs" />
      <Compile Include="Assets\_Scripts\Debug\UI\DialogueManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\UI\DialogueTrigger.cs" />
+     <Compile Include="Assets\_Scripts\Debug\UI\getParentText.cs" />
      <Compile Include="Assets\_Scripts\Debug\UI\HealthBar.cs" />
      <Compile Include="Assets\_Scripts\Debug\World\MovingPlatform.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
