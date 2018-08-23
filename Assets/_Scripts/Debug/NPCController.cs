@@ -22,11 +22,15 @@ public class NPCController : MonoBehaviour
 		FindObjectOfType<DialogueManager>().startDialogue(dialogue);
 	}
 
+	void OnTriggerEnter2D()
+	{
+		Debug.Log("Bye!");
+	}
+
 	void OnTriggerStay2D(Collider2D talker)
 	{
 		if (Input.GetButtonDown("Use") && talker.name == "Player")
 		{
-			Debug.Log("Hello!");
 			TriggerDialogue();
 		}
 	}

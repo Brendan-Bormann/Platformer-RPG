@@ -14,9 +14,13 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] public string PlayerName = "Player";
 
 	// Health //
-	[Header("Health")]
+	[Header("Status")]
 	[SerializeField] public int CurrentHealth = 100;
 	[SerializeField] public int MaxHealth = 100;
+
+	[SerializeField] public int CurrentExp = 0;
+	[SerializeField] public int ExpToLevel = 100;
+	[SerializeField] public int CurrentLevel = 3;
 
 	// Damage Stats
 	[Header("Combat")]
@@ -41,12 +45,14 @@ public class PlayerManager : MonoBehaviour
 	[Header("UI")]
 	[SerializeField] private GameObject UIBrain;
 	private HealthBar HealthBarController;
+	private ExpBar ExpBarController;
 	
 
 	
 	void Start ()
 	{
 		HealthBarController = UIBrain.GetComponent<HealthBar>();
+		ExpBarController = UIBrain.GetComponent<ExpBar>();
 		SpawnPoint.GetComponent<SpriteRenderer>().enabled = false;
 		Player.transform.position = SpawnPoint.position;
 	}
@@ -55,13 +61,22 @@ public class PlayerManager : MonoBehaviour
 	void Update ()
 	{
 		HealthBarController.SetHealth(CurrentHealth);
+		CheckHealth();
+		ExpBarController.SetExp(CurrentExp, ExpToLevel);
+		ExpBarController.SetLevel(CurrentLevel);
 		healthDebug();
+		LevelUp();
 	}
 
 
 	public void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
+	}
+
+	public void GainExp(int exp)
+	{
+		CurrentExp += exp;
 	}
 
 	void healthDebug()
@@ -73,6 +88,10 @@ public class PlayerManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.O))
 		{
 			CurrentHealth += 10;
+		}
+		if (Input.GetKeyDown(KeyCode.P))
+		{
+			GainExp(10);
 		}
 	}
 
@@ -92,5 +111,15 @@ public class PlayerManager : MonoBehaviour
 	{
 		Scene thisScene = SceneManager.GetActiveScene();
 		SceneManager.SetActiveScene(thisScene);
+	}
+
+	void LevelUp()
+	{
+		if (CurrentExp >= ExpToLevel)
+		{
+			CurrentLevel++;
+			CurrentExp -= ExpToLevel;
+			ExpToLevel =  (int)(ExpToLevel * 1.2f);
+		}
 	}
 }

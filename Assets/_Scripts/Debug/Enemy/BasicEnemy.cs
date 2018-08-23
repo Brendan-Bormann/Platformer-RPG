@@ -6,6 +6,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	private EnemyManager EnemyManager;
 	private PlayerManager PlayerManager;
+	private UIManager UIManager;
 
 
 	[Header("Stats")]
@@ -15,6 +16,7 @@ public class BasicEnemy : MonoBehaviour {
 	[SerializeField] public float speed = 1;
 	[SerializeField] public int damage = 5;
 	[SerializeField] public int defence = 0;
+	[SerializeField] public int ExpValue = 5;
 
 	[Header("Sprite Info")]
 	[SerializeField] private Sprite deathSprite;
@@ -28,11 +30,13 @@ public class BasicEnemy : MonoBehaviour {
 	[SerializeField] private LayerMask layerMask;
 
 	public bool allowedToMove = true;
+	private bool isDead = false;
 
 	void Start ()
 	{
-		EnemyManager = GameObject.Find("Enemy Brain").GetComponent<EnemyManager>();
-		PlayerManager = GameObject.Find("Player Brain").GetComponent<PlayerManager>();
+		EnemyManager = FindObjectOfType<EnemyManager>();
+		PlayerManager = FindObjectOfType<PlayerManager>();
+		UIManager = FindObjectOfType<UIManager>();
 		myRigidBody = GetComponent<Rigidbody2D>();
 	}
 	
@@ -89,7 +93,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	public void CheckHealth()
 	{
-		if (!(health > 0))
+		if (!(health > 0) && !isDead)
 		{
 			StartCoroutine(Die());
 		}
@@ -97,12 +101,14 @@ public class BasicEnemy : MonoBehaviour {
 
 	private IEnumerator Die()
 	{
+		isDead = true;
 		StopAllCoroutines();
 		allowedToMove = false;
 		gameObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		myRigidBody.velocity = Vector2.zero;
-		yield return new WaitForSeconds(4);
+		PlayerManager.CurrentExp += ExpValue;
+		yield return new WaitForSeconds(1.5f);
 		Destroy(gameObject);
 	}
 
@@ -110,9 +116,7 @@ public class BasicEnemy : MonoBehaviour {
 	{
 		incomingDamage -= defence;
 		
-		GameObject hitText = Instantiate(EnemyManager.combatText, transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
-		CombatText script = hitText.GetComponent<CombatText>();
-		script.init(incomingDamage, new Color(204, 51, 0), false);
+		UIManager.SpawnCombatText(transform.position, incomingDamage, Color.red, false);
 
 		health -= incomingDamage;
 	}
