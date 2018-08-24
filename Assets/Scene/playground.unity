@@ -6052,7 +6052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBrain: {fileID: 740883623}
   PlayerManager: {fileID: 0}
-  enemies: []
+  enemies:
+  - {fileID: 0}
   EnemyBounds: {fileID: 1943623920}
   combatText: {fileID: 1795683872149350, guid: d94250fd3915d474fbe5697800615c8b, type: 2}
 --- !u!1 &1914222615
