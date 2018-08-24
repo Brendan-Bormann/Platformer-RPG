@@ -57,6 +57,7 @@
      <Compile Include="Assets\_Scripts\AbilityLog.cs" />
      <Compile Include="Assets\_Scripts\Buff.cs" />
      <Compile Include="Assets\_Scripts\CastSpell.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Enemy\AngryRoger.cs" />
      <Compile Include="Assets\_Scripts\Debug\Enemy\BasicEnemy.cs" />
      <Compile Include="Assets\_Scripts\Debug\Enemy\EnemyManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCController.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\_Scripts\Debug\UI\HealthBar.cs" />
      <Compile Include="Assets\_Scripts\Debug\UI\UIManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\World\MovingPlatform.cs" />
+     <Compile Include="Assets\_Scripts\Debug\World\OneTimeDialogueTrigger.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
      <Compile Include="Assets\_Scripts\EnemySpellTravel.cs" />
      <Compile Include="Assets\_Scripts\LevelTransfer.cs" />

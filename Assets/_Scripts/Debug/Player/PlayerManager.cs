@@ -19,7 +19,9 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] public int MaxHealth = 100;
 
 	[SerializeField] public int CurrentExp = 0;
-	[SerializeField] public int ExpToLevel = 83 * CurrentLevel * 2;
+	[SerializeField] public int baseExp = 100;
+	[SerializeField] public int ExpToLevel = 0;
+	[SerializeField] public float levelFactor = 1.4f;
 	[SerializeField] public int CurrentLevel = 1;
 
 	// Damage Stats
@@ -61,6 +63,7 @@ public class PlayerManager : MonoBehaviour
 	
 	void Update ()
 	{
+		ExpToLevel = (int)Mathf.Round(baseExp * (Mathf.Pow(CurrentLevel, levelFactor)));
 		HealthBarController.SetHealth(CurrentHealth);
 		CheckHealth();
 		ExpBarController.SetExp(CurrentExp, ExpToLevel);
@@ -92,7 +95,7 @@ public class PlayerManager : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.P))
 		{
-			GainExp(10);
+			GainExp(ExpToLevel/10);
 		}
 	}
 

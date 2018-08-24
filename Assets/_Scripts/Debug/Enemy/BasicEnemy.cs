@@ -24,7 +24,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	[Header("Physics")]
 	// Physics and raycast related items
-	[SerializeField] private float collisionDistance = 1f;
+	[SerializeField] public float collisionDistance = 1f;
 	private Rigidbody2D myRigidBody;
 	[SerializeField] private float moveDirection = -1f;
 	[SerializeField] private LayerMask layerMask;
