@@ -6059,7 +6059,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394612480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.08, y: 18.66, z: 0}
+  m_LocalPosition: {x: 22.44, y: 11.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 740883626}
@@ -7982,8 +7982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBrain: {fileID: 740883623}
   PlayerManager: {fileID: 0}
-  enemies:
-  - {fileID: 0}
+  enemies: []
   EnemyBounds: {fileID: 1943623920}
   combatText: {fileID: 1795683872149350, guid: d94250fd3915d474fbe5697800615c8b, type: 2}
 --- !u!1 &1914222615

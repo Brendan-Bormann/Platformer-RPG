@@ -66,6 +66,9 @@ public class PlayerManager : MonoBehaviour
 	
 	void Update ()
 	{
+
+		CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+
 		ExpToLevel = (int)Mathf.Round(baseExp * (Mathf.Pow(CurrentLevel, levelFactor)));
 		HealthBarController.SetHealth(CurrentHealth);
 		CheckHealth();
