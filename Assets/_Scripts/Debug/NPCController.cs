@@ -17,6 +17,7 @@ public class NPCController : MonoBehaviour
     }
 
 	public Dialogue dialogue;
+	
 	public void TriggerDialogue()
 	{
 		FindObjectOfType<DialogueManager>().startDialogue(dialogue);

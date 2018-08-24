@@ -9,7 +9,9 @@ public class ExpBar : MonoBehaviour
 
 	[SerializeField] private Image mainBar;
 	[SerializeField] private GameObject levelTextObject;
+	[SerializeField] private GameObject levelPercentObject;
 	private TextMeshProUGUI levelText;
+	private TextMeshProUGUI levelPercent;
 	private int level;
 
 	[SerializeField] private float lerpSpeed = 0.5f;
@@ -23,11 +25,16 @@ public class ExpBar : MonoBehaviour
 		ExpToLevel = FindObjectOfType<PlayerManager>().ExpToLevel;
 		level = FindObjectOfType<PlayerManager>().CurrentLevel;
 		levelText = levelTextObject.GetComponent<TextMeshProUGUI>();
+		levelPercent = levelPercentObject.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
 		var expRatio = (float)CurrentExp / (float)ExpToLevel;
+
+		var expPercentage = expRatio * 100;
+
+		levelPercent.text = Mathf.Round(expPercentage).ToString() + "%";
 
 		mainBar.fillAmount = Mathf.Lerp(mainBar.fillAmount, expRatio, lerpSpeed);
 

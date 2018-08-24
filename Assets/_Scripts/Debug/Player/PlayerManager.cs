@@ -19,8 +19,8 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] public int MaxHealth = 100;
 
 	[SerializeField] public int CurrentExp = 0;
-	[SerializeField] public int ExpToLevel = 100;
-	[SerializeField] public int CurrentLevel = 3;
+	[SerializeField] public int ExpToLevel = 83 * CurrentLevel * 2;
+	[SerializeField] public int CurrentLevel = 1;
 
 	// Damage Stats
 	[Header("Combat")]
@@ -32,8 +32,9 @@ public class PlayerManager : MonoBehaviour
 	{
 		get
 		{
-			if (Random.Range(1, 101) < critChancePercent) return (int)((float)Power * critDamageMod);
-			else return Power;
+			var randomizedPower =  (Power * Random.Range(80, 121)) / 100;
+			if (Random.Range(1, 101) < critChancePercent) return (int)((float)randomizedPower * critDamageMod);
+			else return randomizedPower;
 		}
 	}
 

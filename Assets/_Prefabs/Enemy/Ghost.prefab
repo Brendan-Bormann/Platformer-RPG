@@ -93,6 +93,8 @@ MonoBehaviour:
   health: 50
   speed: 5
   damage: 5
+  defence: 0
+  ExpValue: 10
   deathSprite: {fileID: 21300858, guid: 15ee9db3a8060c540a259b177603e1ad, type: 3}
   collisionDistance: 0.5
   moveDirection: -1
