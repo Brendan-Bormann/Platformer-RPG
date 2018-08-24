@@ -15,6 +15,8 @@ public class AngryRoger : MonoBehaviour
 
 	[SerializeField] private float timer = 0.01f;
 
+	[SerializeField] private GameObject nextArea;
+
     // Use this for initialization
     void Start()
     {
@@ -49,6 +51,11 @@ public class AngryRoger : MonoBehaviour
 			myScript.speed = 7.5f;
 			Vector3 newSize = new Vector3(1, 1, 1);
 			transform.localScale = Vector3.Lerp(transform.localScale, newSize, Time.deltaTime);
+		}
+
+		if (myHealth <= 0)
+		{
+			nextArea.SetActive(true);
 		}
     }
 }
