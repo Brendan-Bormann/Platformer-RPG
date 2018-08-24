@@ -29,6 +29,9 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] public int Power = 10;
 	[SerializeField] public int critChancePercent = 5;
 	[SerializeField] public float critDamageMod = 1.2f;
+	[SerializeField] public float recoveryTime;
+	[SerializeField] private float recoveryTimer = 0;
+	[SerializeField] private bool inRecoveryTime = false;
 
 	public int DamageCalculation
 	{
@@ -70,12 +73,26 @@ public class PlayerManager : MonoBehaviour
 		ExpBarController.SetLevel(CurrentLevel);
 		healthDebug();
 		LevelUp();
+
+		if (inRecoveryTime)
+		{
+			recoveryTimer += Time.deltaTime;
+			if (recoveryTime <= recoveryTimer)
+			{
+				inRecoveryTime = false;
+				recoveryTimer = 0;
+			}
+		}
 	}
 
 
 	public void TakeDamage(int damage)
 	{
-		CurrentHealth -= damage;
+		if (!inRecoveryTime)
+		{
+			CurrentHealth -= damage;
+			inRecoveryTime = true;
+		}
 	}
 
 	public void GainExp(int exp)
