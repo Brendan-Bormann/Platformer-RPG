@@ -28,6 +28,13 @@ public class UIManager : MonoBehaviour
         script.init(damage, myColor, isCrit);
     }
 
+	public void SpawnText(Vector3 location, string message , Color myColor)
+    {
+        GameObject hitText = Instantiate(combatText, new Vector3(location.x, location.y, location.z + 1), new Quaternion(0, 0, 0, 0)) as GameObject;
+        CombatText script = hitText.GetComponent<CombatText>();
+        script.initText(message, myColor);
+    }
+
 	public void DisplayGameMenu(string menu)
 	{
 

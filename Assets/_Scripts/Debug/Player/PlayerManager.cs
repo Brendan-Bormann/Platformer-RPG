@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviour
 {
 	// Referances to Player Object
 	[SerializeField] public GameObject Player;
-
 	[SerializeField] public Transform SpawnPoint;
 
 	// Name //
@@ -52,11 +51,13 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] private GameObject UIBrain;
 	private HealthBar HealthBarController;
 	private ExpBar ExpBarController;
+	private UIManager UIManager;
 	
 
 	
 	void Start ()
 	{
+		UIManager = UIBrain.GetComponent<UIManager>();
 		HealthBarController = UIBrain.GetComponent<HealthBar>();
 		ExpBarController = UIBrain.GetComponent<ExpBar>();
 		SpawnPoint.GetComponent<SpriteRenderer>().enabled = false;
@@ -141,6 +142,7 @@ public class PlayerManager : MonoBehaviour
 	{
 		if (CurrentExp >= ExpToLevel)
 		{
+			UIManager.SpawnText(new Vector2(Player.transform.position.x, Player.transform.position.y + 1), "Level Up!", Color.yellow);
 			CurrentLevel++;
 			CurrentExp -= ExpToLevel;
 			ExpToLevel =  (int)(ExpToLevel * 1.2f);
