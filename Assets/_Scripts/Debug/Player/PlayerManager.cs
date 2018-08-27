@@ -57,10 +57,14 @@ public class PlayerManager : MonoBehaviour
 	
 	void Start ()
 	{
+		// init UI
 		UIManager = UIBrain.GetComponent<UIManager>();
+		// init health and exp bar
 		HealthBarController = UIBrain.GetComponent<HealthBar>();
 		ExpBarController = UIBrain.GetComponent<ExpBar>();
+		// remove spawn point from edit mode
 		SpawnPoint.GetComponent<SpriteRenderer>().enabled = false;
+		// set the player to the spawn point location
 		Player.transform.position = SpawnPoint.position;
 	}
 	
