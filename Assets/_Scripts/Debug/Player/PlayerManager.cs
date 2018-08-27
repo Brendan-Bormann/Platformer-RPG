@@ -32,6 +32,15 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] private float recoveryTimer = 0;
 	[SerializeField] private bool inRecoveryTime = false;
 
+	// private enum WeaponClass
+	// {
+	// 	sword,
+	// 	spear,
+	// 	flail,
+	// 	whip,
+
+	// }
+
 	public int DamageCalculation
 	{
 		get
@@ -126,7 +135,7 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-	
+
 	void CheckHealth()
 	{
 		if (Player.transform.position.y < -20)

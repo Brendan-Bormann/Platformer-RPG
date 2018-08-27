@@ -62,6 +62,8 @@
      <Compile Include="Assets\_Scripts\Debug\Enemy\EnemyManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCController.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCManager.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Player\ArrowTravel.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Player\PlayerBowAttack.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMeleeAttack.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMeleeHitBox.cs" />
