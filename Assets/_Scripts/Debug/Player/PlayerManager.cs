@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-
+	// health loss calculation
 	public void TakeDamage(int damage)
 	{
 		if (!inRecoveryTime)
@@ -103,11 +103,13 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+	// exp gain
 	public void GainExp(int exp)
 	{
 		CurrentExp += exp;
 	}
 
+	// dev controls for health and exp gain
 	void healthDebug()
 	{
 		if (Input.GetKeyDown(KeyCode.I))
@@ -124,6 +126,7 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+	
 	void CheckHealth()
 	{
 		if (Player.transform.position.y < -20)
