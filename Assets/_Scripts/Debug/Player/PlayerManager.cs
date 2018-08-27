@@ -115,6 +115,7 @@ public class PlayerManager : MonoBehaviour
 	// exp gain
 	public void GainExp(int exp)
 	{
+		UIManager.SpawnText(new Vector2(Player.transform.position.x - 1, Player.transform.position.y + 1), "+" + exp + " xp", Color.green);
 		CurrentExp += exp;
 	}
 
@@ -150,15 +151,15 @@ public class PlayerManager : MonoBehaviour
 
 	void PlayerDie()
 	{
-		Scene thisScene = SceneManager.GetActiveScene();
-		SceneManager.SetActiveScene(thisScene);
+		Player.transform.position = SpawnPoint.transform.position;
+		CurrentHealth = MaxHealth;
 	}
 
 	void LevelUp()
 	{
 		if (CurrentExp >= ExpToLevel)
 		{
-			UIManager.SpawnText(new Vector2(Player.transform.position.x, Player.transform.position.y + 1), "Level Up!", Color.yellow);
+			UIManager.SpawnText(new Vector2(Player.transform.position.x - 1, Player.transform.position.y + 2), "Level Up!", Color.yellow);
 			CurrentLevel++;
 			CurrentExp -= ExpToLevel;
 			ExpToLevel =  (int)(ExpToLevel * 1.2f);

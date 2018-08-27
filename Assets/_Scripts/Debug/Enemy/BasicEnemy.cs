@@ -107,7 +107,7 @@ public class BasicEnemy : MonoBehaviour {
 		gameObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
 		gameObject.GetComponent<Collider2D>().enabled = false;
 		myRigidBody.velocity = Vector2.zero;
-		PlayerManager.CurrentExp += ExpValue;
+		PlayerManager.GainExp(ExpValue);
 		yield return new WaitForSeconds(1.5f);
 		Destroy(gameObject);
 	}

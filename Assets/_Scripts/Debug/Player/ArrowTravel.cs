@@ -9,11 +9,11 @@ public class ArrowTravel : MonoBehaviour
 	private Rigidbody2D myRigidBody;
 
     // Use this for initialization
-    void Start()
+    public void Init(Vector3 force)
     {
 		PlayerManager = FindObjectOfType<PlayerManager>();
 		myRigidBody = GetComponent<Rigidbody2D>();
-		myRigidBody.AddForce(new Vector3(1250, 2, 20));
+		myRigidBody.AddForce(force);
     }
 
     // Update is called once per frame
