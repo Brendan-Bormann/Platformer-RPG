@@ -78,6 +78,7 @@
      <Compile Include="Assets\_Scripts\Debug\UI\UIManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\World\MovingPlatform.cs" />
      <Compile Include="Assets\_Scripts\Debug\World\OneTimeDialogueTrigger.cs" />
+     <Compile Include="Assets\_Scripts\Debug\World\Portal.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
      <Compile Include="Assets\_Scripts\EnemySpellTravel.cs" />
      <Compile Include="Assets\_Scripts\LevelTransfer.cs" />
