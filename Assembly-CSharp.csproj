@@ -60,6 +60,7 @@
      <Compile Include="Assets\_Scripts\Debug\Enemy\AngryRoger.cs" />
      <Compile Include="Assets\_Scripts\Debug\Enemy\BasicEnemy.cs" />
      <Compile Include="Assets\_Scripts\Debug\Enemy\EnemyManager.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Energy.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCController.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\ArrowTravel.cs" />
