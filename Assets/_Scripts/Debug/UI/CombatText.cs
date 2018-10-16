@@ -20,10 +20,20 @@ public class CombatText : MonoBehaviour {
 
 	public void init(int newDamage, Color newColor, bool newCrit)
 	{
-		Debug.Log("text here");
 		damage = newDamage.ToString();
 		color = newColor;
 		crit = newCrit;
+
+		textmesh = GetComponent<TextMeshPro>();
+		textmesh.text = damage;
+		textmesh.color = color;
+		start = true;
+	}
+
+	public void initText(string message, Color newColor)
+	{
+		damage = message;
+		color = newColor;
 
 		textmesh = GetComponent<TextMeshPro>();
 		textmesh.text = damage;

@@ -60,8 +60,11 @@
      <Compile Include="Assets\_Scripts\Debug\Enemy\AngryRoger.cs" />
      <Compile Include="Assets\_Scripts\Debug\Enemy\BasicEnemy.cs" />
      <Compile Include="Assets\_Scripts\Debug\Enemy\EnemyManager.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Energy.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCController.cs" />
      <Compile Include="Assets\_Scripts\Debug\NPCManager.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Player\ArrowTravel.cs" />
+     <Compile Include="Assets\_Scripts\Debug\Player\PlayerBowAttack.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMeleeAttack.cs" />
      <Compile Include="Assets\_Scripts\Debug\Player\PlayerMeleeHitBox.cs" />
@@ -76,6 +79,7 @@
      <Compile Include="Assets\_Scripts\Debug\UI\UIManager.cs" />
      <Compile Include="Assets\_Scripts\Debug\World\MovingPlatform.cs" />
      <Compile Include="Assets\_Scripts\Debug\World\OneTimeDialogueTrigger.cs" />
+     <Compile Include="Assets\_Scripts\Debug\World\Portal.cs" />
      <Compile Include="Assets\_Scripts\Enemy.cs" />
      <Compile Include="Assets\_Scripts\EnemySpellTravel.cs" />
      <Compile Include="Assets\_Scripts\LevelTransfer.cs" />

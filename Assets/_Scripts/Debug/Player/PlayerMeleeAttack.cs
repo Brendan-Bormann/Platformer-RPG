@@ -9,13 +9,13 @@ public class PlayerMeleeAttack : MonoBehaviour {
 
 	private float PlayerDirection;
 
-	private enum dir
+	public enum dir
 	{
 		Right,
 		Left,
 	}
 
-	[SerializeField] private dir PlayerPersistantDirection;
+	[SerializeField] public dir PlayerPersistantDirection;
 
 	[SerializeField] private GameObject LeftHitBox;
 	[SerializeField] private GameObject RightHitBox;

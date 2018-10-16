@@ -1,3 +1,5 @@
 # Platformer-RPG
 
-Currently a nameless rendition of my personal project. Scaped old project, and starting fresh with new knowledge at my disposal. If this ends up becoming an important project, it will become private.
+An old base model of my current passion project. Kept as reference.
+
+Many things were learned from this project, and many scripts may be reused.

@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviour
 {
 	// Referances to Player Object
 	[SerializeField] public GameObject Player;
-
 	[SerializeField] public Transform SpawnPoint;
 
 	// Name //
@@ -33,6 +32,15 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] private float recoveryTimer = 0;
 	[SerializeField] private bool inRecoveryTime = false;
 
+	// private enum WeaponClass
+	// {
+	// 	sword,
+	// 	spear,
+	// 	flail,
+	// 	whip,
+
+	// }
+
 	public int DamageCalculation
 	{
 		get
@@ -52,14 +60,20 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] private GameObject UIBrain;
 	private HealthBar HealthBarController;
 	private ExpBar ExpBarController;
+	private UIManager UIManager;
 	
 
 	
 	void Start ()
 	{
+		// init UI
+		UIManager = UIBrain.GetComponent<UIManager>();
+		// init health and exp bar
 		HealthBarController = UIBrain.GetComponent<HealthBar>();
 		ExpBarController = UIBrain.GetComponent<ExpBar>();
+		// remove spawn point from edit mode
 		SpawnPoint.GetComponent<SpriteRenderer>().enabled = false;
+		// set the player to the spawn point location
 		Player.transform.position = SpawnPoint.position;
 	}
 	
@@ -88,7 +102,7 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-
+	// health loss calculation
 	public void TakeDamage(int damage)
 	{
 		if (!inRecoveryTime)
@@ -98,11 +112,14 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+	// exp gain
 	public void GainExp(int exp)
 	{
+		UIManager.SpawnText(new Vector2(Player.transform.position.x - 1, Player.transform.position.y + 1), "+" + exp + " xp", Color.green);
 		CurrentExp += exp;
 	}
 
+	// dev controls for health and exp gain
 	void healthDebug()
 	{
 		if (Input.GetKeyDown(KeyCode.I))
@@ -119,6 +136,7 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+
 	void CheckHealth()
 	{
 		if (Player.transform.position.y < -20)
@@ -133,14 +151,15 @@ public class PlayerManager : MonoBehaviour
 
 	void PlayerDie()
 	{
-		Scene thisScene = SceneManager.GetActiveScene();
-		SceneManager.SetActiveScene(thisScene);
+		Player.transform.position = SpawnPoint.transform.position;
+		CurrentHealth = MaxHealth;
 	}
 
 	void LevelUp()
 	{
 		if (CurrentExp >= ExpToLevel)
 		{
+			UIManager.SpawnText(new Vector2(Player.transform.position.x - 1, Player.transform.position.y + 2), "Level Up!", Color.yellow);
 			CurrentLevel++;
 			CurrentExp -= ExpToLevel;
 			ExpToLevel =  (int)(ExpToLevel * 1.2f);
