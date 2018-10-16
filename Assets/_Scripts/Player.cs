@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+	// this scipt is only to be attached to a player object
+
 	[SerializeField] public float movementSpeed;
 	[SerializeField] public float jumpPower;
 	private bool jumpLocked = false;
